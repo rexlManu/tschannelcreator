@@ -1,0 +1,12 @@
+[{
+    "availableChannels": 3,
+    "channelName": "Talk #%number",
+    "properties": {
+        "channel_maxclients": 1,
+        "cpid": 2,
+        "channel_flag_permanent": 1,
+        "channel_flag_maxclients_unlimited": 0,
+        "channel_codec_is_unencrypted": 0,
+        "channel_codec_quality": 10
+    }
+}]

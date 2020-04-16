@@ -33,8 +33,13 @@ I think the configuration is self explaned.
 }]
 ```
 > availableChannels
+
 The amount of many channel should be empty available
+
 > channelName
+
 The channel name of all channels with the paramenter %number
+
 > properties
+
 the channel parameters from the teamspeak query creation

@@ -2,7 +2,7 @@ const chalk = require('chalk');
 const config = require('./config');
 const groups = require('./groups');
 
-const {TeamSpeak, QueryProtocol, TextMessageTargetMode, ChannelEdit, Codec} = require("ts3-nodejs-library")
+const { TeamSpeak, QueryProtocol, TextMessageTargetMode, ChannelEdit, Codec } = require("ts3-nodejs-library")
 const channels = [];
 const error = (error) => console.log(chalk.red(error));
 const currentChannel = [];
@@ -17,7 +17,7 @@ TeamSpeak.connect({
 }).then(teamSpeak => {
     console.log(chalk.cyan('[Query]'), chalk.green('Successful connected to server.'));
 
-    teamSpeak.clientList({client_type: 0}).then(clients => {
+    teamSpeak.clientList({ client_type: 0 }).then(clients => {
         clients.forEach(client => {
             currentChannel[client.uniqueIdentifier] = client.cid;
         })
@@ -31,8 +31,8 @@ TeamSpeak.connect({
         teamSpeak.registerEvent("textprivate")
     ]).then(() => {
         groups.forEach(group => {
-            teamSpeak.channelList({pid: group.properties.cpid}).then(async cs => {
-                var element = {group, channels: []};
+            teamSpeak.channelList({ pid: group.properties.cpid }).then(async cs => {
+                var element = { group, channels: [] };
                 cs.forEach(channel => {
                     element.channels.push(channel);
                 });
@@ -93,7 +93,7 @@ TeamSpeak.connect({
 
     async function channelFull(cid) {
         var channel = await teamSpeak.getChannelByID(cid);
-        return channel.totalClients >= channel.maxclients;
+        return channel.maxclients == -1 ? channel.totalClients != 0 : channel.totalClients >= channel.maxclients;
     }
 
     async function channelEmpty(cid) {
@@ -101,4 +101,3 @@ TeamSpeak.connect({
         return channel.totalClients === 0;
     }
 });
-

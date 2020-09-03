@@ -1,6 +1,7 @@
 [{
     "availableChannels": 3,
     "channelName": "Talk #%number",
+    "createChannels": 1,
     "properties": {
         "channel_maxclients": 1,
         "cpid": 2,

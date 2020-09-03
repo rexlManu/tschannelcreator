@@ -53,10 +53,10 @@ TeamSpeak.connect({
                     return v.channels.filter(x => x.cid === currentChannel[event.client.uniqueIdentifier])[0]
                 })[0];
                 if (!element) return;
-                if (element.channels.length - 2 < 0) return;
+                if (element.channels.length - element.group.createChannels < 0) return;
                 if (element.channels.length <= element.group.availableChannels) return;
                 var lastChannelsEmpty = true;
-                for (let i = element.channels.length - 2; i < element.channels.length; i++) {
+                for (let i = element.channels.length - element.group.createChannels; i < element.channels.length; i++) {
                     if (!await channelEmpty(element.channels[i].cid)) {
                         lastChannelsEmpty = false;
                     }
@@ -75,7 +75,7 @@ TeamSpeak.connect({
             }
 
             if (allChannelFull) {
-                for (let i = 0; i < 2; i++) {
+                for (let i = 0; i < element.group.createChannels; i++) {
                     var channel = await teamSpeak.channelCreate(element.group.channelName.replace("%number", element.channels.length + 1), element.group.properties)
                     element.channels.push(channel);
                 }

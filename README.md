@@ -22,6 +22,7 @@ I think the configuration is self explaned.
 [{
     "availableChannels": 3,
     "channelName": "Talk #%number",
+    "createChannels": 1,
     "properties": {
         "channel_maxclients": 1,
         "cpid": 2,
@@ -43,3 +44,7 @@ The channel name of all channels with the paramenter %number
 > properties
 
 the channel parameters from the teamspeak query creation
+
+> createChannels
+
+how many channels should be created if new channels are getting created after a user joins into a channel

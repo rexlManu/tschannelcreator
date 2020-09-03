@@ -32,7 +32,7 @@ I think the configuration is self explaned.
         "channel_codec_quality": 10
     },
     "permissions": [
-        { "perm": "i_channel_needed_join_power", "value": 50 }
+        { "permsid": "i_channel_needed_join_power", "permvalue": 50 }
     ]
 }]
 ```

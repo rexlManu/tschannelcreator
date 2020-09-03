@@ -9,5 +9,8 @@
         "channel_flag_maxclients_unlimited": 0,
         "channel_codec_is_unencrypted": 0,
         "channel_codec_quality": 10
-    }
+    },
+    "permissions": [
+        { "perm": "i_channel_needed_join_power", "value": 50 }
+    ]
 }]

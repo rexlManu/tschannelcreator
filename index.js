@@ -37,7 +37,9 @@ TeamSpeak.connect({
                     element.channels.push(channel);
                 });
                 for (let i = element.channels.length; i < group.availableChannels; i++) {
-                    element.channels.push(await teamSpeak.channelCreate(group.channelName.replace("%number", i + 1), group.properties));
+                    var createdChannel = await teamSpeak.channelCreate(group.channelName.replace("%number", i + 1), group.properties);
+                    element.channels.push(createdChannel);
+                    await createdChannel.setPerm(group.permissions)
                 }
                 channels.push(element);
             }).catch(error);
@@ -78,6 +80,7 @@ TeamSpeak.connect({
                 for (let i = 0; i < element.group.createChannels; i++) {
                     var channel = await teamSpeak.channelCreate(element.group.channelName.replace("%number", element.channels.length + 1), element.group.properties)
                     element.channels.push(channel);
+                    await channel.setPerm(element.group.permissions)
                 }
             }
         })

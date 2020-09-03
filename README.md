@@ -30,7 +30,10 @@ I think the configuration is self explaned.
         "channel_flag_maxclients_unlimited": 0,
         "channel_codec_is_unencrypted": 0,
         "channel_codec_quality": 10
-    }
+    },
+    "permissions": [
+        { "perm": "i_channel_needed_join_power", "value": 50 }
+    ]
 }]
 ```
 > availableChannels
@@ -48,3 +51,7 @@ the channel parameters from the teamspeak query creation
 > createChannels
 
 how many channels should be created if new channels are getting created after a user joins into a channel
+
+> permissions
+
+The permissions that should have the created channel
